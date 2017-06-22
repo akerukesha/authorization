@@ -14,6 +14,15 @@ private struct Constants {
     static let disabledColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
 }
 
+extension UIViewController {
+    
+    func showAlert(alertTitle: String, alertMessage: String) {
+        let alertView = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        present(alertView, animated:true, completion:nil)
+    }
+}
+
 class EmailViewController: UIViewController {
 
     @IBOutlet private weak var emailTextField: UITextField!
@@ -23,6 +32,8 @@ class EmailViewController: UIViewController {
     @IBOutlet weak var emailTextFieldBottom: UIView!
     
     @IBAction func emailTextFieldChanged(_ sender: UITextField) {
+        //переделать:
+        //удалить кнопку, заново создать
         if let text = emailTextField.text, text.isEmpty == false{
             self.nextButton.isEnabled = true
             self.nextButton.tintColor = Constants.enabledColor
@@ -31,12 +42,12 @@ class EmailViewController: UIViewController {
             self.nextButton.tintColor = UIColor.clear
         }
     }
+    
     @IBAction func emailTextFieldActivated(_ sender: UITextField) {
         emailTextFieldBottom.backgroundColor = Constants.enabledColor
     }
     @IBAction func emailTextFieldDeactivated(_ sender: UITextField) {
         emailTextFieldBottom.backgroundColor = Constants.disabledColor
-        
     }
     
     @IBAction private func showPassword(_ sender: UIBarButtonItem) {
@@ -46,9 +57,7 @@ class EmailViewController: UIViewController {
         if emailIsValid(email: email) {
             performSegue(withIdentifier: Constants.PasswordSegue, sender: email)
         } else {
-            let alertView = UIAlertController(title: "Неправильный email", message: "Введите снова", preferredStyle: .alert)
-            alertView.addAction(UIAlertAction(title: " Ок", style: .default, handler: nil))
-            present(alertView, animated:true, completion:nil)
+            showAlert(alertTitle: "Неправильный email", alertMessage: "Введите снова")
         }
     }
 
@@ -62,8 +71,8 @@ class EmailViewController: UIViewController {
         case Constants.PasswordSegue:
             let destinationVC = segue.destination as! PasswordViewController
             destinationVC.email = sender as! String
-        default: break
+        default:
+            break
         }
     }
-    
 }

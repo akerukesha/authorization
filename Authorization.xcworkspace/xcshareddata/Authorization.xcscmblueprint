@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "48361DED95358AE8FC339F800AAC21878A134471",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "679666227176614A65932983ADA91DCEACCD63E2" : 9223372036854775807,
+    "48361DED95358AE8FC339F800AAC21878A134471" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EF310769-E5BC-493B-B258-F7443A0E1C11",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "679666227176614A65932983ADA91DCEACCD63E2" : "",
+    "48361DED95358AE8FC339F800AAC21878A134471" : "Authorization\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Authorization",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Authorization.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/akerukesha\/authorization.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "48361DED95358AE8FC339F800AAC21878A134471"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/akerukesha\/calculator_swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "679666227176614A65932983ADA91DCEACCD63E2"
+    }
+  ]
+}

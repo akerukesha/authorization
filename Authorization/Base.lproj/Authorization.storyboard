@@ -126,7 +126,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FwH-pv-orX">
                                 <rect key="frame" x="16" y="240.5" width="343" height="1"/>
@@ -150,12 +150,54 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fCF-93-pc6">
-                        <barButtonItem key="rightBarButtonItem" title="Далее" id="wpQ-tI-Ov7"/>
+                        <barButtonItem key="rightBarButtonItem" title="Далее" id="wpQ-tI-Ov7">
+                            <connections>
+                                <action selector="authorize:" destination="uUe-7U-NYP" id="2cQ-uh-JVD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="passwordTextField" destination="RsM-1b-FcP" id="EDk-KR-hfO"/>
+                        <segue destination="cfF-wb-MjL" kind="show" identifier="ShowToken" id="402-0r-V4t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQ9-HU-X8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1098" y="443"/>
+        </scene>
+        <!--Token Info View Controller-->
+        <scene sceneID="tu9-h0-B0U">
+            <objects>
+                <viewController id="cfF-wb-MjL" customClass="TokenInfoViewController" customModule="Authorization" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g41-VO-pul"/>
+                        <viewControllerLayoutGuide type="bottom" id="bMd-lr-GtP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M8p-Wn-IYn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="token" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0k-We-3iq">
+                                <rect key="frame" x="16" y="323" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W0k-We-3iq" firstAttribute="centerY" secondItem="M8p-Wn-IYn" secondAttribute="centerY" id="KhN-fy-j4Q"/>
+                            <constraint firstAttribute="trailing" secondItem="W0k-We-3iq" secondAttribute="trailing" constant="16" id="TtE-w7-ifE"/>
+                            <constraint firstItem="W0k-We-3iq" firstAttribute="leading" secondItem="M8p-Wn-IYn" secondAttribute="leading" constant="16" id="fmT-sT-ewk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tokenTextLabel" destination="W0k-We-3iq" id="6hq-kj-BNP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ti0-aT-lEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957.5999999999999" y="445.72713643178412"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dKW-Du-jpZ">
