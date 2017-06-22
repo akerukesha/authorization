@@ -27,19 +27,17 @@ class EmailViewController: UIViewController {
 
     @IBOutlet private weak var emailTextField: UITextField!
     
-    @IBOutlet weak var nextButton: UIBarButtonItem!
-    
     @IBOutlet weak var emailTextFieldBottom: UIView!
+    
+    @IBOutlet weak var navBar: UINavigationItem!
     
     @IBAction func emailTextFieldChanged(_ sender: UITextField) {
         //переделать:
         //удалить кнопку, заново создать
         if let text = emailTextField.text, text.isEmpty == false{
-            self.nextButton.isEnabled = true
-            self.nextButton.tintColor = Constants.enabledColor
+            navBar.rightBarButtonItem = UIBarButtonItem.init(title: "Далее", style: .done, target: self, action: #selector(EmailViewController.showPassword))
         } else {
-            self.nextButton.isEnabled = false
-            self.nextButton.tintColor = UIColor.clear
+            navBar.rightBarButtonItem = nil
         }
     }
     
@@ -49,10 +47,9 @@ class EmailViewController: UIViewController {
     @IBAction func emailTextFieldDeactivated(_ sender: UITextField) {
         emailTextFieldBottom.backgroundColor = Constants.disabledColor
     }
-    
-    @IBAction private func showPassword(_ sender: UIBarButtonItem) {
+
+    @objc func showPassword(){
         let email = emailTextField.text!
-        
         //email validation
         if emailIsValid(email: email) {
             performSegue(withIdentifier: Constants.PasswordSegue, sender: email)
@@ -60,7 +57,7 @@ class EmailViewController: UIViewController {
             showAlert(alertTitle: "Неправильный email", alertMessage: "Введите снова")
         }
     }
-
+    
     private func emailIsValid(email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
         return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)

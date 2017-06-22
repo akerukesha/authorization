@@ -73,16 +73,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SJK-Tb-bOP">
-                        <barButtonItem key="rightBarButtonItem" title="Далее" id="zWq-wJ-p1K">
-                            <connections>
-                                <action selector="showPassword:" destination="BYZ-38-t0r" id="PFU-ND-3Fv"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Далее" id="zWq-wJ-p1K"/>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="NDK-eO-TRr" id="Xzt-iJ-TBK"/>
                         <outlet property="emailTextFieldBottom" destination="lce-9O-2xd" id="Y2w-pO-3rG"/>
-                        <outlet property="nextButton" destination="zWq-wJ-p1K" id="8gX-Dy-HTv"/>
+                        <outlet property="navBar" destination="SJK-Tb-bOP" id="IAQ-df-Stb"/>
                         <segue destination="uUe-7U-NYP" kind="show" identifier="ShowPassword" id="JTZ-hc-aLz"/>
                     </connections>
                 </viewController>
