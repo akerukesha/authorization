@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import NVActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        NVActivityIndicatorView.DEFAULT_TYPE = .ballRotateChase
+        NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor.white.withAlphaComponent(0.5)
+        NVActivityIndicatorView.DEFAULT_COLOR = UIViewController.enabledColor
         IQKeyboardManager.sharedManager().enable = true
         return true
     }

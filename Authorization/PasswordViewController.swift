@@ -7,23 +7,47 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 private struct Constants {
     static let userInfoSegue = "ShowToken"
 }
 
-class PasswordViewController: UIViewController {
+class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
 
     var email: String!
 
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func authorize(_ sender: UIBarButtonItem) {
+    @IBOutlet weak var passwordTextFieldBottom: UIView!
+    
+    @IBOutlet weak var passwordNavBar: UINavigationItem!
+    
+    @IBAction func passwordTextFieldChanged(_ sender: UITextField) {
+        if let text = passwordTextField.text, text.isEmpty == false{
+            passwordNavBar.rightBarButtonItem = UIBarButtonItem.init(title: "Далее", style: .done, target: self, action: #selector(PasswordViewController.authorize))
+        } else {
+            passwordNavBar.rightBarButtonItem = nil
+        }
+    }
+    
+    @IBAction func passwordTextFieldActivated(_ sender: UITextField) {
+        passwordTextFieldBottom.backgroundColor = UIViewController.enabledColor
+    }
+    
+    @IBAction func passwordTextFieldDeactivated(_ sender: UITextField) {
+        passwordTextFieldBottom.backgroundColor = UIViewController.disabledColor
+    }
+    
+    @objc func authorize() {
         let password = passwordTextField.text!
         
         if passwordIsValid(password: password) == true {
             
+            startAnimating()
             User.authorize(email: email, password: password) { user, message in
+                
+                self.stopAnimating()
                 if let message = message {
                     self.showAlert(alertTitle: "Произошла ошибка", alertMessage: message)
                 } else {
@@ -48,5 +72,9 @@ class PasswordViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    override func viewDidLoad() {
+        passwordNavBar.rightBarButtonItem = nil
     }
 }

@@ -10,11 +10,14 @@ import UIKit
 
 private struct Constants {
     static let PasswordSegue = "ShowPassword"
-    static let enabledColor = UIColor(red: 255/255, green: 109/255, blue: 0/255, alpha: 1)
-    static let disabledColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
+//    static let enabledColor = UIColor(red: 255/255, green: 109/255, blue: 0/255, alpha: 1)
+//    static let disabledColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
 }
 
 extension UIViewController {
+    
+    static let enabledColor = UIColor(red: 255/255, green: 109/255, blue: 0/255, alpha: 1)
+    static let disabledColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
     
     func showAlert(alertTitle: String, alertMessage: String) {
         let alertView = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -29,23 +32,25 @@ class EmailViewController: UIViewController {
     
     @IBOutlet weak var emailTextFieldBottom: UIView!
     
-    @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var emailNavBar: UINavigationItem!
+    
     
     @IBAction func emailTextFieldChanged(_ sender: UITextField) {
-        //переделать:
-        //удалить кнопку, заново создать
+        
         if let text = emailTextField.text, text.isEmpty == false{
-            navBar.rightBarButtonItem = UIBarButtonItem.init(title: "Далее", style: .done, target: self, action: #selector(EmailViewController.showPassword))
+            emailNavBar.rightBarButtonItem = UIBarButtonItem.init(title: "Далее", style: .done, target: self, action: #selector(EmailViewController.showPassword))
         } else {
-            navBar.rightBarButtonItem = nil
+            emailNavBar.rightBarButtonItem = nil
         }
     }
     
     @IBAction func emailTextFieldActivated(_ sender: UITextField) {
-        emailTextFieldBottom.backgroundColor = Constants.enabledColor
+        emailTextFieldBottom.backgroundColor = UIViewController.enabledColor
+            //Constants.enabledColor
     }
     @IBAction func emailTextFieldDeactivated(_ sender: UITextField) {
-        emailTextFieldBottom.backgroundColor = Constants.disabledColor
+        emailTextFieldBottom.backgroundColor = UIViewController.disabledColor
+            //Constants.disabledColor
     }
 
     @objc func showPassword(){
@@ -66,10 +71,21 @@ class EmailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier!{
         case Constants.PasswordSegue:
+            //можно ли автоматизировать это для любой вьюшки?
+            //допустим, в extension
             let destinationVC = segue.destination as! PasswordViewController
             destinationVC.email = sender as! String
+            let backButton = UIBarButtonItem()
+            backButton.title = "Назад"
+            navigationItem.backBarButtonItem = backButton
         default:
             break
         }
     }
+    override func viewDidLoad() {
+        emailNavBar.rightBarButtonItem = nil
+    }
+    //клавиатура активна даже при блокировании экрана
+    //при нажатии на return срабатывает action
+    //english-only клавиатура для email и пароля
 }
