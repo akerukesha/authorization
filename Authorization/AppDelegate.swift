@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().enable = true
         
-        if let userInfo = defaults.dictionary(forKey: "userTokenInfo") {
+        if let userInfo = defaults.dictionary(forKey: UIViewController.userInfoKey) {
             //print(userInfo)
             self.user = User(from: userInfo)
-            self.window?.rootViewController = UIStoryboard(name: "Authorization", bundle: nil).instantiateViewController(withIdentifier: "TokenInfo")
+            self.window?.rootViewController = UIStoryboard(name: UIViewController.mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: UIViewController.tokenInfoVCIdentifier)
         }
         
         return true

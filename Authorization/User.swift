@@ -30,6 +30,7 @@ struct User {
             "username": email,
             "password": password
         ]
+        
         let url = "https://apivotem.solf.io/api/authe/login/"
         
         Alamofire.request(url, method: .post, parameters: parameters).responseJSON { response in
@@ -42,7 +43,7 @@ struct User {
                 let code = json["code"] as! Int
                 switch code {
                 case 0:
-                    defaults.set(json, forKey: "userTokenInfo")
+                    defaults.set(json, forKey: UIViewController.userInfoKey)
                     completion(User(from: json), nil)
                 case 6:
                     completion(nil, "Такого email не существует")

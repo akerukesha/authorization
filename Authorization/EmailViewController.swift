@@ -34,6 +34,9 @@ extension UIViewController {
         alertView.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
         present(alertView, animated:true, completion:nil)
     }
+    static let userInfoKey = "userTokenInfo"
+    static let mainStoryboardName = "Authorization"
+    static let tokenInfoVCIdentifier = "TokenInfo"
 }
 
 class EmailViewController: UIViewController {
