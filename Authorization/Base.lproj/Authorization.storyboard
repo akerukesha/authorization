@@ -11,7 +11,7 @@
         <!--Email View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="EmailViewController" customModule="Authorization" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmailView" id="BYZ-38-t0r" customClass="EmailViewController" customModule="Authorization" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -43,7 +43,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NDK-eO-TRr">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NDK-eO-TRr">
                                                 <rect key="frame" x="16" y="131.5" width="343" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Tq4-Kb-QV7"/>
@@ -114,7 +114,7 @@
         <!--Password View Controller-->
         <scene sceneID="HRq-QK-PAF">
             <objects>
-                <viewController id="uUe-7U-NYP" customClass="PasswordViewController" customModule="Authorization" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PasswordView" id="uUe-7U-NYP" customClass="PasswordViewController" customModule="Authorization" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ngL-w5-jUC"/>
                         <viewControllerLayoutGuide type="bottom" id="gyZ-ZJ-oVt"/>
@@ -146,7 +146,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RsM-1b-FcP">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RsM-1b-FcP">
                                                 <rect key="frame" x="16" y="131.5" width="343" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="K5U-XA-PLP"/>
@@ -232,9 +232,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4A4-77-KdY">
+                                <rect key="frame" x="159.5" y="575" width="55" height="30"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="1" green="0.42745098040000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="cfF-wb-MjL" eventType="touchUpInside" id="BCz-H5-QA4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bMd-lr-GtP" firstAttribute="top" secondItem="4A4-77-KdY" secondAttribute="bottom" constant="62" id="0mt-TS-WM3"/>
+                            <constraint firstItem="4A4-77-KdY" firstAttribute="centerX" secondItem="M8p-Wn-IYn" secondAttribute="centerX" id="7Mj-Ql-UTs"/>
                             <constraint firstItem="W0k-We-3iq" firstAttribute="centerY" secondItem="M8p-Wn-IYn" secondAttribute="centerY" id="KhN-fy-j4Q"/>
                             <constraint firstAttribute="trailing" secondItem="W0k-We-3iq" secondAttribute="trailing" constant="16" id="TtE-w7-ifE"/>
                             <constraint firstItem="W0k-We-3iq" firstAttribute="leading" secondItem="M8p-Wn-IYn" secondAttribute="leading" constant="16" id="fmT-sT-ewk"/>
@@ -251,7 +262,7 @@
         <!--Navigation Controller-->
         <scene sceneID="dKW-Du-jpZ">
             <objects>
-                <navigationController id="ctR-N0-fJP" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainLoginView" id="ctR-N0-fJP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zqb-Zr-wME">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

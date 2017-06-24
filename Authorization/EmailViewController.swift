@@ -34,12 +34,16 @@ extension UIViewController {
         alertView.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
         present(alertView, animated:true, completion:nil)
     }
-    static let userInfoKey = "userTokenInfo"
+    
+    static let userInfoKey = "userInfo"
     static let mainStoryboardName = "Authorization"
     static let tokenInfoVCIdentifier = "TokenInfo"
+    static let emailVCIdentifier = "EmailView"
+    static let passwordVCIdentifier = "PasswordView"
+    static let mainLoginVCIdentifier = "MainLoginView"
 }
 
-class EmailViewController: UIViewController {
+class EmailViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var emailTextField: UITextField!
     
@@ -70,6 +74,7 @@ class EmailViewController: UIViewController {
         let email = emailTextField.text!
         //email validation
         if emailIsValid(email: email) {
+            self.dismissKeyboard()
             performSegue(withIdentifier: Constants.PasswordSegue, sender: email)
         } else {
             showAlert(alertTitle: "Неправильный email", alertMessage: "Введите снова")
@@ -99,8 +104,14 @@ class EmailViewController: UIViewController {
         super.viewDidLoad()
         emailNavBar.rightBarButtonItem = nil
         self.hideKeyboardWhenTappedAround()
+        self.emailTextField.delegate = self as UITextFieldDelegate
     }
-    //клавиатура активна даже при блокировании экрана
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        showPassword()
+        return true
+    }
     //при нажатии на return должен срабатывать action
     //english-only клавиатура для email и пароля
 }

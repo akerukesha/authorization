@@ -13,7 +13,7 @@ private struct Constants {
     static let userInfoSegue = "ShowToken"
 }
 
-class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
+class PasswordViewController: UIViewController, NVActivityIndicatorViewable, UITextFieldDelegate {
 
     var email: String!
 
@@ -44,6 +44,7 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
         
         if passwordIsValid(password: password) == true {
             
+            self.dismissKeyboard()
             startAnimating()
             User.authorize(email: email, password: password) { user, message in
                 
@@ -78,5 +79,12 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
         super.viewDidLoad()
         passwordNavBar.rightBarButtonItem = nil
         self.hideKeyboardWhenTappedAround()
+        self.passwordTextField.delegate = self as UITextFieldDelegate
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        authorize()
+        return true
     }
 }

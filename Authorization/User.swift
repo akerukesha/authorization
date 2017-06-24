@@ -48,7 +48,7 @@ struct User {
                 case 6:
                     completion(nil, "Такого email не существует")
                 default:
-                    print("Пришел код ошибки, который мы не обрабатываем")
+                    completion(nil, "Неизвестная ошибка, попробуйте снова")
                 }
             }
         }

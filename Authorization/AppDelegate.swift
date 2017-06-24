@@ -28,17 +28,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         
         if let userInfo = defaults.dictionary(forKey: UIViewController.userInfoKey) {
-            //print(userInfo)
+            
+            switchStoryboard("welcome")
+            
             self.user = User(from: userInfo)
-            self.window?.rootViewController = UIStoryboard(name: UIViewController.mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: UIViewController.tokenInfoVCIdentifier)
         }
         
         return true
     }
     
     func getUser() -> User?{
-        print(user!)
-        return user!
+        if user != nil{
+            print(user!)
+        }
+        return user
+    }
+    
+    func switchStoryboard(_ mode: String) {
+        switch mode {
+        case "login":
+            self.window?.rootViewController = UIStoryboard(name: UIViewController.mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: UIViewController.mainLoginVCIdentifier)
+        case "welcome":
+            self.window?.rootViewController = UIStoryboard(name: UIViewController.mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: UIViewController.tokenInfoVCIdentifier)
+        default: break
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
