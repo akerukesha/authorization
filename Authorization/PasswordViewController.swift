@@ -75,6 +75,8 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         passwordNavBar.rightBarButtonItem = nil
+        self.hideKeyboardWhenTappedAround()
     }
 }

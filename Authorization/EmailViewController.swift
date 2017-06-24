@@ -16,6 +16,16 @@ private struct Constants {
 
 extension UIViewController {
     
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     static let enabledColor = UIColor(red: 255/255, green: 109/255, blue: 0/255, alpha: 1)
     static let disabledColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
     
@@ -83,9 +93,11 @@ class EmailViewController: UIViewController {
         }
     }
     override func viewDidLoad() {
+        super.viewDidLoad()
         emailNavBar.rightBarButtonItem = nil
+        self.hideKeyboardWhenTappedAround()
     }
     //клавиатура активна даже при блокировании экрана
-    //при нажатии на return срабатывает action
+    //при нажатии на return должен срабатывать action
     //english-only клавиатура для email и пароля
 }

@@ -42,6 +42,7 @@ struct User {
                 let code = json["code"] as! Int
                 switch code {
                 case 0:
+                    defaults.set(json, forKey: "userTokenInfo")
                     completion(User(from: json), nil)
                 case 6:
                     completion(nil, "Такого email не существует")

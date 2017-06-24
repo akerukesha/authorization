@@ -10,20 +10,35 @@ import UIKit
 import IQKeyboardManagerSwift
 import NVActivityIndicatorView
 
+let defaults = UserDefaults.standard
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var user: User? = nil
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         NVActivityIndicatorView.DEFAULT_TYPE = .ballRotateChase
         NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor.white.withAlphaComponent(0.5)
         NVActivityIndicatorView.DEFAULT_COLOR = UIViewController.enabledColor
+        
         IQKeyboardManager.sharedManager().enable = true
+        
+        if let userInfo = defaults.dictionary(forKey: "userTokenInfo") {
+            //print(userInfo)
+            self.user = User(from: userInfo)
+            self.window?.rootViewController = UIStoryboard(name: "Authorization", bundle: nil).instantiateViewController(withIdentifier: "TokenInfo")
+        }
+        
         return true
+    }
+    
+    func getUser() -> User?{
+        print(user!)
+        return user!
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

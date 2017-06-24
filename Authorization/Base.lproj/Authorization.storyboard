@@ -217,7 +217,7 @@
         <!--Token Info View Controller-->
         <scene sceneID="tu9-h0-B0U">
             <objects>
-                <viewController id="cfF-wb-MjL" customClass="TokenInfoViewController" customModule="Authorization" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TokenInfo" id="cfF-wb-MjL" customClass="TokenInfoViewController" customModule="Authorization" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g41-VO-pul"/>
                         <viewControllerLayoutGuide type="bottom" id="bMd-lr-GtP"/>

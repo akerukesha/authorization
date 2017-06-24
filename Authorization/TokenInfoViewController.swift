@@ -11,6 +11,9 @@ import UIKit
 class TokenInfoViewController: UIViewController {
 
     @IBOutlet weak var tokenTextLabel: UILabel!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var user: User!{
         didSet{
             updateUI()
@@ -23,6 +26,9 @@ class TokenInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let currentUser = self.appDelegate.getUser() {
+            user = currentUser
+        }
         updateUI()
     }
 }
