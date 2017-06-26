@@ -25,7 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor.white.withAlphaComponent(0.5)
         NVActivityIndicatorView.DEFAULT_COLOR = UIViewController.enabledColor
         
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         IQKeyboardManager.sharedManager().enable = true
+        
         
         if let userInfo = defaults.dictionary(forKey: UIViewController.userInfoKey) {
             
@@ -38,13 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func getUser() -> User?{
-        if user != nil{
-            print(user!)
-        }
+        
         return user
     }
     
     func switchStoryboard(_ mode: String) {
+        
         switch mode {
         case "login":
             self.window?.rootViewController = UIStoryboard(name: UIViewController.mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: UIViewController.mainLoginVCIdentifier)

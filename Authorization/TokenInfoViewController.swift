@@ -11,26 +11,28 @@ import UIKit
 class TokenInfoViewController: UIViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    @IBOutlet weak var tokenTextLabel: UILabel!
-    
-    @IBAction func logout(_ sender: UIButton) {
-        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        defaults.synchronize()
-        appDelegate.switchStoryboard("login")
-    }
-    
     var user: User!{
         didSet{
             updateUI()
         }
     }
     
+    @IBOutlet weak var tokenTextLabel: UILabel!
+    
+    @IBAction func logout(_ sender: UIButton) {
+        
+        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        defaults.synchronize()
+        appDelegate.switchStoryboard("login")
+    }
+    
     private func updateUI() {
+        
         tokenTextLabel?.text = user.token
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         if let currentUser = self.appDelegate.getUser() {
             user = currentUser
