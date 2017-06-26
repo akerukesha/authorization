@@ -55,7 +55,8 @@ struct User {
                 let code = json["code"] as! Int
                 switch code {
                 case 0:
-                    defaults.set(json, forKey: UIViewController.userInfoKey)
+                    //defaults.set(json, forKey: UIViewController.userInfoKey)
+                    saveToStorage(json: json)
                     completion(User(from: json), nil)
                 case 6:
                     completion(nil, "Такого email не существует")
@@ -64,5 +65,14 @@ struct User {
                 }
             }
         }
+    }
+    static func saveToStorage(json: [String: Any]) {
+        defaults.set(json, forKey: UIViewController.userInfoKey)
+    }
+    
+    static func deleteFromStorage(){
+        
+        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        defaults.synchronize()
     }
 }

@@ -20,9 +20,8 @@ class TokenInfoViewController: UIViewController {
     @IBOutlet weak var tokenTextLabel: UILabel!
     
     @IBAction func logout(_ sender: UIButton) {
-        
-        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        defaults.synchronize()
+    
+        User.deleteFromStorage()
         appDelegate.switchStoryboard("login")
     }
     
