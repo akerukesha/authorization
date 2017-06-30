@@ -65,7 +65,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="Ds1-TT-mwN" firstAttribute="leading" secondItem="SLL-0L-aed" secondAttribute="leading" constant="16" id="CzG-0s-GBx"/>
                                             <constraint firstItem="NDK-eO-TRr" firstAttribute="leading" secondItem="Ds1-TT-mwN" secondAttribute="leading" id="DdC-Ac-pTj"/>
@@ -285,18 +285,6 @@
                                                     <constraint firstAttribute="height" constant="150" id="epl-C4-xW7"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vls-yy-KbH">
-                                                <rect key="frame" x="16" y="244" width="343" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjh-y7-x20">
-                                                <rect key="frame" x="16" y="297" width="343" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1C-ex-KVm">
                                                 <rect key="frame" x="304" y="8" width="55" height="30"/>
                                                 <state key="normal" title="Log Out">
@@ -309,21 +297,57 @@
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-OS-RqQ">
                                                 <rect key="frame" x="177" y="127" width="20" height="20"/>
                                             </activityIndicatorView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="hsi-2i-6k0">
+                                                <rect key="frame" x="16" y="274" width="343" height="79.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="XDU-OY-eeg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="27"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="dSm-xh-DQ8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="25" height="27"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="25" id="WeA-7d-qzy"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vls-yy-KbH">
+                                                                <rect key="frame" x="40" y="0.0" width="303" height="27"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="K25-wz-705">
+                                                        <rect key="frame" x="0.0" y="59" width="343" height="20.5"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Email Icon" translatesAutoresizingMaskIntoConstraints="NO" id="BEV-O8-ziL">
+                                                                <rect key="frame" x="0.0" y="0.0" width="25" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="25" id="BmP-iI-KdT"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjh-y7-x20">
+                                                                <rect key="frame" x="40" y="0.0" width="303" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="8zB-1U-No3" firstAttribute="top" secondItem="jLo-eK-9pO" secondAttribute="top" constant="62" id="8dX-rf-jRb"/>
-                                            <constraint firstItem="vls-yy-KbH" firstAttribute="leading" secondItem="jLo-eK-9pO" secondAttribute="leading" constant="16" id="8lE-27-Hox"/>
-                                            <constraint firstItem="tjh-y7-x20" firstAttribute="leading" secondItem="vls-yy-KbH" secondAttribute="leading" id="Cv0-CW-MNE"/>
-                                            <constraint firstItem="tjh-y7-x20" firstAttribute="trailing" secondItem="vls-yy-KbH" secondAttribute="trailing" id="Dd5-8B-ihr"/>
                                             <constraint firstItem="b1C-ex-KVm" firstAttribute="top" secondItem="jLo-eK-9pO" secondAttribute="top" constant="8" id="EeE-RE-RwN"/>
                                             <constraint firstAttribute="trailing" secondItem="b1C-ex-KVm" secondAttribute="trailing" constant="16" id="Lbm-Is-fmS"/>
                                             <constraint firstItem="8zB-1U-No3" firstAttribute="centerX" secondItem="jLo-eK-9pO" secondAttribute="centerX" id="QX8-Al-BHJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="hsi-2i-6k0" secondAttribute="trailing" constant="16" id="Y2h-PB-xeo"/>
                                             <constraint firstItem="CWO-OS-RqQ" firstAttribute="centerY" secondItem="8zB-1U-No3" secondAttribute="centerY" id="e6w-dd-3n6"/>
-                                            <constraint firstAttribute="trailing" secondItem="vls-yy-KbH" secondAttribute="trailing" constant="16" id="fCD-A8-02M"/>
-                                            <constraint firstItem="vls-yy-KbH" firstAttribute="top" secondItem="8zB-1U-No3" secondAttribute="bottom" constant="32" id="g3o-cc-u1v"/>
-                                            <constraint firstItem="tjh-y7-x20" firstAttribute="top" secondItem="vls-yy-KbH" secondAttribute="bottom" constant="32" id="kA1-Kq-3fW"/>
+                                            <constraint firstItem="hsi-2i-6k0" firstAttribute="top" secondItem="8zB-1U-No3" secondAttribute="bottom" constant="62" id="hGR-IR-Qt4"/>
                                             <constraint firstItem="CWO-OS-RqQ" firstAttribute="centerX" secondItem="8zB-1U-No3" secondAttribute="centerX" id="mmm-pU-Icv"/>
+                                            <constraint firstItem="hsi-2i-6k0" firstAttribute="leading" secondItem="jLo-eK-9pO" secondAttribute="leading" constant="16" id="rOw-wo-TKG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -374,4 +398,8 @@
             <point key="canvasLocation" x="-730" y="446"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Email Icon" width="25" height="18"/>
+        <image name="User Icon" width="25" height="27"/>
+    </resources>
 </document>
