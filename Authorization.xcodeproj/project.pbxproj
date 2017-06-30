@@ -14,6 +14,9 @@
 		F11B23DA1EFA83450096BD7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11B23D81EFA83450096BD7C /* LaunchScreen.storyboard */; };
 		F11B23E61EFA844B0096BD7C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B23E51EFA844B0096BD7C /* EmailViewController.swift */; };
 		F11B23E81EFA901E0096BD7C /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B23E71EFA901E0096BD7C /* PasswordViewController.swift */; };
+		F140EB341F026D630040CDAE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140EB331F026D630040CDAE /* Storage.swift */; };
+		F140EB361F0271ED0040CDAE /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140EB351F0271EC0040CDAE /* Storyboard.swift */; };
+		F140EB381F02798C0040CDAE /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140EB371F02798C0040CDAE /* UserInfoViewController.swift */; };
 		F1C0413B1EFBB7C80060EF6E /* TokenInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0413A1EFBB7C80060EF6E /* TokenInfoViewController.swift */; };
 		F1C0413D1EFBB9DA0060EF6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0413C1EFBB9DA0060EF6E /* User.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +33,9 @@
 		F11B23DB1EFA83450096BD7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F11B23E51EFA844B0096BD7C /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		F11B23E71EFA901E0096BD7C /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		F140EB331F026D630040CDAE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		F140EB351F0271EC0040CDAE /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		F140EB371F02798C0040CDAE /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		F1C0413A1EFBB7C80060EF6E /* TokenInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenInfoViewController.swift; sourceTree = "<group>"; };
 		F1C0413C1EFBB9DA0060EF6E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				F1C0413C1EFBB9DA0060EF6E /* User.swift */,
+				F140EB331F026D630040CDAE /* Storage.swift */,
+				F140EB351F0271EC0040CDAE /* Storyboard.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 				F11B23E51EFA844B0096BD7C /* EmailViewController.swift */,
 				F11B23E71EFA901E0096BD7C /* PasswordViewController.swift */,
 				F1C0413A1EFBB7C80060EF6E /* TokenInfoViewController.swift */,
+				F140EB371F02798C0040CDAE /* UserInfoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -254,10 +263,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C0413B1EFBB7C80060EF6E /* TokenInfoViewController.swift in Sources */,
+				F140EB381F02798C0040CDAE /* UserInfoViewController.swift in Sources */,
 				F11B23D01EFA83450096BD7C /* AppDelegate.swift in Sources */,
 				F11B23E61EFA844B0096BD7C /* EmailViewController.swift in Sources */,
+				F140EB361F0271ED0040CDAE /* Storyboard.swift in Sources */,
 				F1C0413D1EFBB9DA0060EF6E /* User.swift in Sources */,
 				F11B23E81EFA901E0096BD7C /* PasswordViewController.swift in Sources */,
+				F140EB341F026D630040CDAE /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

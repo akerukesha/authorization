@@ -11,7 +11,8 @@ import NVActivityIndicatorView
 
 private struct Constants {
     
-    static let userInfoSegue = "ShowToken"
+    static let tokenInfoSegue = "ShowToken"
+    static let userInfoSegue = "ShowUser"
 }
 
 class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
@@ -43,7 +44,7 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
         passwordTextFieldBottom.backgroundColor = UIViewController.disabledColor
     }
     
-    @objc func authorize() {
+    func authorize() {
         
         let password = passwordTextField.text!
         
@@ -52,13 +53,13 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
             self.dismissKeyboard()
             startAnimating()
             User.authorize(email: email, password: password) { user, message in
-                
+    
                 self.stopAnimating()
                 if let message = message {
                     
                     self.showAlert(alertTitle: "Произошла ошибка", alertMessage: message)
                 } else {
-                    
+                    Storage.user = user
                     self.performSegue(withIdentifier: Constants.userInfoSegue, sender: user!)
                 }
             }
@@ -72,6 +73,9 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
         
         switch segue.identifier! {
         case Constants.userInfoSegue:
+            let destinationVC = segue.destination as! UserInfoViewController
+            destinationVC.user = sender as! User
+        case Constants.tokenInfoSegue:
             let destinationVC = segue.destination as! TokenInfoViewController
             destinationVC.user = sender as! User
         default:

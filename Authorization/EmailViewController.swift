@@ -17,12 +17,6 @@ extension UIViewController {
     
     static let enabledColor = UIColor(red: 255/255, green: 109/255, blue: 0/255, alpha: 1)
     static let disabledColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
-    static let userInfoKey = "userInfo"
-    static let mainStoryboardName = "Authorization"
-    static let tokenInfoVCIdentifier = "TokenInfo"
-    static let emailVCIdentifier = "EmailView"
-    static let passwordVCIdentifier = "PasswordView"
-    static let mainLoginVCIdentifier = "MainLoginView"
     
     func hideKeyboardWhenTappedAround() {
         
@@ -102,7 +96,7 @@ class EmailViewController: UIViewController {
         super.viewDidLoad()
         emailNavBar.rightBarButtonItem = nil
         //self.hideKeyboardWhenTappedAround()
-        self.emailTextField.delegate = self as UITextFieldDelegate
+        emailTextField.delegate = self as UITextFieldDelegate
     }
 }
 

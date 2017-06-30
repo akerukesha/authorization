@@ -7,20 +7,27 @@
 //
 
 import Foundation
+import ObjectMapper
 import Alamofire
+import AlamofireImage
 
-struct User {
+struct User: Mappable {
     
     var token = ""
     var id = 0
     var email = ""
+    var name = ""
+    var imageUrl = ""
+    var localImage: UIImage?
     
-    init(from json: [String: Any]) {
-        token = json["token"] as! String
-        
-        let user = json["user"] as! [String: Any]
-        id = user["id"] as! Int
-        email = user["username"] as! String
+    init?(map: Map) { }
+    
+    mutating func mapping(map: Map) {
+        token <- map["token"]
+        id <- map["user.id"]
+        email <- map["user.email"]
+        name <- map["user.full_name"]
+        imageUrl <- map["user.avatar"]
     }
     
     static func emailIsValid(email: String) -> Bool {
@@ -50,29 +57,30 @@ struct User {
             case .failure(let error):
                 completion(nil, error.localizedDescription)
             case .success(let value):
+                print(value)
                 let json = value as! [String: Any]
                 
                 let code = json["code"] as! Int
                 switch code {
                 case 0:
-                    //defaults.set(json, forKey: UIViewController.userInfoKey)
-                    saveToStorage(json: json)
-                    completion(User(from: json), nil)
+                    let user = User(JSON: json)!
+                    completion(user, nil)
                 case 6:
                     completion(nil, "Такого email не существует")
                 default:
-                    completion(nil, "Неизвестная ошибка, попробуйте снова")
+                    completion(nil, "Попробуйте снова")
                 }
             }
         }
     }
-    static func saveToStorage(json: [String: Any]) {
-        defaults.set(json, forKey: UIViewController.userInfoKey)
-    }
     
-    static func deleteFromStorage(){
-        
-        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        defaults.synchronize()
+    static func fetchImage(with url: String,
+                           completion: @escaping (UIImage) -> Void) {
+        Alamofire.request(url).responseImage { response in
+            if let image = response.result.value {
+                Storage.addImage(image: image, url: url)
+                completion(image)
+            }
+        }
     }
 }

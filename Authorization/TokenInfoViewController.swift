@@ -11,7 +11,7 @@ import UIKit
 class TokenInfoViewController: UIViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var user: User!{
+    var user = Storage.user! {
         didSet{
             updateUI()
         }
@@ -21,21 +21,19 @@ class TokenInfoViewController: UIViewController {
     
     @IBAction func logout(_ sender: UIButton) {
     
-        User.deleteFromStorage()
-        appDelegate.switchStoryboard("login")
+        //User.deleteFromStorage()
+        Storage.user = nil
+        appDelegate.loadAuthorizationPage()
     }
     
     private func updateUI() {
         
-        tokenTextLabel?.text = user.token
+        tokenTextLabel?.text = user.toJSONString()
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        if let currentUser = self.appDelegate.getUser() {
-            user = currentUser
-        }
         updateUI()
     }
 }

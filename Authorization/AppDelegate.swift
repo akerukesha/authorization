@@ -10,8 +10,6 @@ import UIKit
 import IQKeyboardManagerSwift
 import NVActivityIndicatorView
 
-let defaults = UserDefaults.standard
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,34 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor.white.withAlphaComponent(0.5)
         NVActivityIndicatorView.DEFAULT_COLOR = UIViewController.enabledColor
         
-        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-        IQKeyboardManager.sharedManager().enable = true
+        let keyboardManager = IQKeyboardManager.sharedManager()
+        keyboardManager.enable = true
+        keyboardManager.shouldResignOnTouchOutside = true
         
-        
-        if let userInfo = defaults.dictionary(forKey: UIViewController.userInfoKey) {
-            
-            switchStoryboard("welcome")
-            
-            self.user = User(from: userInfo)
+        if Storage.user != nil {
+            window?.rootViewController = Storyboard.userInfoView
+        } else {
+            loadAuthorizationPage()
         }
         
         return true
     }
     
-    func getUser() -> User?{
+    func loadAuthorizationPage() {
         
-        return user
-    }
-    
-    func switchStoryboard(_ mode: String) {
-        
-        switch mode {
-        case "login":
-            self.window?.rootViewController = UIStoryboard(name: UIViewController.mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: UIViewController.mainLoginVCIdentifier)
-        case "welcome":
-            self.window?.rootViewController = UIStoryboard(name: UIViewController.mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: UIViewController.tokenInfoVCIdentifier)
-        default: break
-        }
+        window?.rootViewController = Storyboard.authorizationVC
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
