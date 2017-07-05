@@ -15,6 +15,8 @@ private struct Constants {
     static let passwordVCIdentifier = "PasswordView"
     static let tokenInfoVCIdentifier = "TokenInfo"
     static let userInfoVCIdentifier = "UserInfo"
+    static let userProfileNavigationVCIdentifier = "UserProfileNavigationVC"
+    static let userProfileTableVCIdentifier = "UserProfileTabelView"
 }
 
 struct Storyboard {
@@ -32,5 +34,10 @@ struct Storyboard {
     
     static var userInfoView: UserInfoViewController {
         return authorizationAndRegistrationStoryboard.instantiateViewController(withIdentifier: Constants.userInfoVCIdentifier) as! UserInfoViewController
+    }
+    
+    static var userProfileVC: UINavigationController {
+        return authorizationAndRegistrationStoryboard
+            .instantiateViewController(withIdentifier: Constants.userProfileNavigationVCIdentifier) as! UINavigationController
     }
 }

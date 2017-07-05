@@ -18,6 +18,7 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var userPhoto: UIImageView!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     var user = Storage.user! {
         didSet{
             updateUI()
@@ -25,9 +26,9 @@ class UserInfoViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        let url = Storage.user?.imageUrl
+        let url = Storage.user!.imageUrl
         Storage.user = nil
-        Storage.removeImage(url: url!)
+        Storage.removeImage(url: url)
         appDelegate.loadAuthorizationPage()
     }
 
@@ -37,15 +38,19 @@ class UserInfoViewController: UIViewController {
         userEmail?.text = user.email
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateUI()
+    }
+    
     private func makeImageRounded() {
         userPhoto.layer.cornerRadius = userPhoto.frame.size.width / 2;
         userPhoto.clipsToBounds = true;
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        updateUI()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         makeImageRounded()
     }
     
@@ -59,7 +64,6 @@ class UserInfoViewController: UIViewController {
         Storage.getImage(url: url) { image in
             if image == nil {
                 User.fetchImage(with: url) { image in
-                    Storage.addImage(image: image, url: url)
                     self.userPhoto.image = image
                     self.spinner.stopAnimating()
                 }

@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         keyboardManager.shouldResignOnTouchOutside = true
         
         if Storage.user != nil {
-            window?.rootViewController = Storyboard.userInfoView
+            window?.rootViewController = Storyboard.userProfileVC
         } else {
             loadAuthorizationPage()
         }

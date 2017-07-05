@@ -13,6 +13,7 @@ private struct Constants {
     
     static let tokenInfoSegue = "ShowToken"
     static let userInfoSegue = "ShowUser"
+    static let userProfileSegue = "ShowUserProfile"
 }
 
 class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
@@ -60,7 +61,8 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
                     self.showAlert(alertTitle: "Произошла ошибка", alertMessage: message)
                 } else {
                     Storage.user = user
-                    self.performSegue(withIdentifier: Constants.userInfoSegue, sender: user!)
+//                    print(user ?? "no user")
+                    self.performSegue(withIdentifier: Constants.userProfileSegue, sender: user!)
                 }
             }
         } else {
@@ -72,6 +74,10 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch segue.identifier! {
+        case Constants.userProfileSegue:
+            let destinationVC = segue.destination as! UINavigationController
+            let currentVC = destinationVC.topViewController as! UserTableViewController
+            currentVC.user = sender as! User
         case Constants.userInfoSegue:
             let destinationVC = segue.destination as! UserInfoViewController
             destinationVC.user = sender as! User
@@ -86,6 +92,7 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        passwordTextField.becomeFirstResponder()
         passwordNavBar.rightBarButtonItem = nil
         //self.hideKeyboardWhenTappedAround()
         self.passwordTextField.delegate = self as UITextFieldDelegate

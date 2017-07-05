@@ -14,6 +14,10 @@
 		F11B23DA1EFA83450096BD7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11B23D81EFA83450096BD7C /* LaunchScreen.storyboard */; };
 		F11B23E61EFA844B0096BD7C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B23E51EFA844B0096BD7C /* EmailViewController.swift */; };
 		F11B23E81EFA901E0096BD7C /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B23E71EFA901E0096BD7C /* PasswordViewController.swift */; };
+		F13DC73B1F0A6E16006E2189 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DC73A1F0A6E16006E2189 /* UserTableViewController.swift */; };
+		F13DC73F1F0BCB6A006E2189 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DC73E1F0BCB6A006E2189 /* FeedViewController.swift */; };
+		F13DC7431F0BE754006E2189 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DC7421F0BE754006E2189 /* Poll.swift */; };
+		F13DC7451F0BEBDE006E2189 /* PollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DC7441F0BEBDE006E2189 /* PollTableViewCell.swift */; };
 		F140EB341F026D630040CDAE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140EB331F026D630040CDAE /* Storage.swift */; };
 		F140EB361F0271ED0040CDAE /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140EB351F0271EC0040CDAE /* Storyboard.swift */; };
 		F140EB381F02798C0040CDAE /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140EB371F02798C0040CDAE /* UserInfoViewController.swift */; };
@@ -33,6 +37,10 @@
 		F11B23DB1EFA83450096BD7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F11B23E51EFA844B0096BD7C /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		F11B23E71EFA901E0096BD7C /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		F13DC73A1F0A6E16006E2189 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		F13DC73E1F0BCB6A006E2189 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		F13DC7421F0BE754006E2189 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		F13DC7441F0BEBDE006E2189 /* PollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollTableViewCell.swift; sourceTree = "<group>"; };
 		F140EB331F026D630040CDAE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		F140EB351F0271EC0040CDAE /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		F140EB371F02798C0040CDAE /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C0413C1EFBB9DA0060EF6E /* User.swift */,
+				F13DC7421F0BE754006E2189 /* Poll.swift */,
 				F140EB331F026D630040CDAE /* Storage.swift */,
 				F140EB351F0271EC0040CDAE /* Storyboard.swift */,
 			);
@@ -130,12 +139,39 @@
 		F11B23E41EFA83F90096BD7C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F11B23E51EFA844B0096BD7C /* EmailViewController.swift */,
-				F11B23E71EFA901E0096BD7C /* PasswordViewController.swift */,
-				F1C0413A1EFBB7C80060EF6E /* TokenInfoViewController.swift */,
-				F140EB371F02798C0040CDAE /* UserInfoViewController.swift */,
+				F13DC73D1F0A6E5C006E2189 /* Authorization */,
+				F13DC7401F0BE6B9006E2189 /* UserProfile */,
+				F13DC7411F0BE6C6006E2189 /* Feed */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F13DC73D1F0A6E5C006E2189 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				F11B23E51EFA844B0096BD7C /* EmailViewController.swift */,
+				F11B23E71EFA901E0096BD7C /* PasswordViewController.swift */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		F13DC7401F0BE6B9006E2189 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				F1C0413A1EFBB7C80060EF6E /* TokenInfoViewController.swift */,
+				F140EB371F02798C0040CDAE /* UserInfoViewController.swift */,
+				F13DC73A1F0A6E16006E2189 /* UserTableViewController.swift */,
+			);
+			name = UserProfile;
+			sourceTree = "<group>";
+		};
+		F13DC7411F0BE6C6006E2189 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				F13DC73E1F0BCB6A006E2189 /* FeedViewController.swift */,
+				F13DC7441F0BEBDE006E2189 /* PollTableViewCell.swift */,
+			);
+			name = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +299,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C0413B1EFBB7C80060EF6E /* TokenInfoViewController.swift in Sources */,
+				F13DC73B1F0A6E16006E2189 /* UserTableViewController.swift in Sources */,
+				F13DC73F1F0BCB6A006E2189 /* FeedViewController.swift in Sources */,
+				F13DC7431F0BE754006E2189 /* Poll.swift in Sources */,
 				F140EB381F02798C0040CDAE /* UserInfoViewController.swift in Sources */,
 				F11B23D01EFA83450096BD7C /* AppDelegate.swift in Sources */,
 				F11B23E61EFA844B0096BD7C /* EmailViewController.swift in Sources */,
 				F140EB361F0271ED0040CDAE /* Storyboard.swift in Sources */,
+				F13DC7451F0BEBDE006E2189 /* PollTableViewCell.swift in Sources */,
 				F1C0413D1EFBB9DA0060EF6E /* User.swift in Sources */,
 				F11B23E81EFA901E0096BD7C /* PasswordViewController.swift in Sources */,
 				F140EB341F026D630040CDAE /* Storage.swift in Sources */,

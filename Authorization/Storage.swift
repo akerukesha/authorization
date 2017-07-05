@@ -57,4 +57,10 @@ struct Storage {
     static func getImage(url: String, completion: @escaping (UIImage?) -> Void) {
         Caches.imageCache.async.object(forKey: url, completion: completion)
     }
+    
+    static func clearImageCache() {
+        Caches.imageCache.async.clear() { error in
+            print(error ?? "clear ok")
+        }
+    }
 }

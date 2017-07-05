@@ -94,6 +94,7 @@ class EmailViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        emailTextField.becomeFirstResponder()
         emailNavBar.rightBarButtonItem = nil
         //self.hideKeyboardWhenTappedAround()
         emailTextField.delegate = self as UITextFieldDelegate

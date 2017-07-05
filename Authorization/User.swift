@@ -18,7 +18,8 @@ struct User: Mappable {
     var email = ""
     var name = ""
     var imageUrl = ""
-    var localImage: UIImage?
+    var telephone = ""
+    var city = ""
     
     init?(map: Map) { }
     
@@ -28,6 +29,8 @@ struct User: Mappable {
         email <- map["user.email"]
         name <- map["user.full_name"]
         imageUrl <- map["user.avatar"]
+        telephone <- map["user.phone"]
+        city <- map["user.city"]
     }
     
     static func emailIsValid(email: String) -> Bool {
@@ -75,11 +78,13 @@ struct User: Mappable {
     }
     
     static func fetchImage(with url: String,
-                           completion: @escaping (UIImage) -> Void) {
+                           completion: @escaping (UIImage?) -> Void) {
         Alamofire.request(url).responseImage { response in
             if let image = response.result.value {
                 Storage.addImage(image: image, url: url)
                 completion(image)
+            } else {
+                completion(nil)
             }
         }
     }
