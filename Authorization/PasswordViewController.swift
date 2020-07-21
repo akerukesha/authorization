@@ -95,7 +95,8 @@ class PasswordViewController: UIViewController, NVActivityIndicatorViewable {
         passwordTextField.becomeFirstResponder()
         passwordNavBar.rightBarButtonItem = nil
         //self.hideKeyboardWhenTappedAround()
-        self.passwordTextField.delegate = self as UITextFieldDelegate
+        passwordTextField.delegate = self as UITextFieldDelegate
+        passwordTextField.returnKeyType = UIReturnKeyType.next
     }
 }
 

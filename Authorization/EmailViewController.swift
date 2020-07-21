@@ -98,6 +98,8 @@ class EmailViewController: UIViewController {
         emailNavBar.rightBarButtonItem = nil
         //self.hideKeyboardWhenTappedAround()
         emailTextField.delegate = self as UITextFieldDelegate
+        
+        emailTextField.returnKeyType = UIReturnKeyType.next
     }
 }
 

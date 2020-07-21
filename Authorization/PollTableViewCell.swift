@@ -8,6 +8,11 @@
 
 import UIKit
 
+private struct Constants {
+    
+    static let defaultPhoto = #imageLiteral(resourceName: "avatar")
+}
+
 class PollTableViewCell: UITableViewCell {
 
     @IBOutlet weak var pollImageView: UIImageView!
@@ -45,8 +50,9 @@ class PollTableViewCell: UITableViewCell {
                     if let currentImage = image {
                         self.setImage(image: currentImage)
                     } else {
-                        self.pollImageView.image = nil
+                        self.pollImageView.image = Constants.defaultPhoto
                     }
+                    
                     self.spinner.stopAnimating()
                 }
             } else {

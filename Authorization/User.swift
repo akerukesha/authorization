@@ -82,6 +82,8 @@ struct User: Mappable {
         Alamofire.request(url).responseImage { response in
             if let image = response.result.value {
                 Storage.addImage(image: image, url: url)
+                
+//                print("Download \(url)")
                 completion(image)
             } else {
                 completion(nil)
